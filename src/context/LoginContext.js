@@ -6,11 +6,12 @@ export const LoginDispatchContext = createContext(null)
 
 const initialState = {
     username: '',
-    isAuth: false
+    isAuth: false,
+    message: "Please Login!"
 }
 // export for providing context (reducer - state and dispatch)
 export const LoginProvider = ({children}) => {
-    const [login, dispatch] = useReducer(loginReducer, 'Hello World')
+    const [login, dispatch] = useReducer(loginReducer, initialState)
 
     return (
         <LoginContext.Provider value={login}>
@@ -29,10 +30,14 @@ const loginReducer = (login, action) => {
            if (action.data.password === 'abc'){
             return {
                 username: action.data.username,
-                isAuth: true
+                isAuth: true,
+                message: `Welcome ${action.data.username}`
             }
            }
-            return login
+            return {
+                ...login,
+                message: "User not Authorized"
+            }
         default:
             return login
     }
