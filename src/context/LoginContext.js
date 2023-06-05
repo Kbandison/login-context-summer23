@@ -38,6 +38,12 @@ const loginReducer = (login, action) => {
                 ...login,
                 message: "User not Authorized"
             }
+
+        // logout case
+        // should clear, empty string, username and password
+        // set isAuth to false
+        // and deliver a log out message = "Logged out!"
+
         default:
             return login
     }
