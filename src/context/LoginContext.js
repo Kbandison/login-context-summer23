@@ -43,7 +43,13 @@ const loginReducer = (login, action) => {
         // should clear, empty string, username and password
         // set isAuth to false
         // and deliver a log out message = "Logged out!"
-
+        case 'LOGOUT':
+            return {
+                username: '',
+                password: '',
+                isAuth: false,
+                message: 'Logged Out!'
+            }
         default:
             return login
     }

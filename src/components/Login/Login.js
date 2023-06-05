@@ -29,29 +29,47 @@ const Login = () => {
         <h2>{login.message}</h2> 
         {/* isAuth = false -> 'User not Authorized'
         isAuth = true -> 'Welcome username' */}
-
-        <label htmlFor='username'>Username: </label>
-        <input 
-            type='text'
-            name='username'
-            value={input.username}
-            onChange={onChangeHandler}
-        /><br />
-        <label htmlFor='password'>Password: </label>
-        <input 
-            type='password'
-            name='password'
-            value={input.password}
-            onChange={onChangeHandler}
-        /><br />
-        <button>Register</button>
-        <button onClick={ 
-            () => dispatch({
-                type: 'LOGIN',
-                data: input
-            })  
-            }>Login</button>
-        {/* Logout Button */}
+        
+        {
+            login.isAuth ? 
+            <>
+                <br></br>
+                {/* Logout Button */}
+                <button onClick={
+                    () => {
+                    dispatch({type: 'LOGOUT'})
+                    setInput({username: '',password: ''})
+                    }
+                }
+                >
+                    Logout
+                </button>
+            </>
+            :
+            <>
+                <label htmlFor='username'>Username: </label>
+                <input 
+                    type='text'
+                    name='username'
+                    value={input.username}
+                    onChange={onChangeHandler}
+                /><br />
+                <label htmlFor='password'>Password: </label>
+                <input 
+                    type='password'
+                    name='password'
+                    value={input.password}
+                    onChange={onChangeHandler}
+                /><br />
+                <button>Register</button>
+                <button onClick={ 
+                    () => dispatch({
+                        type: 'LOGIN',
+                        data: input
+                    })  
+                    }>Login</button>
+            </>           
+        }
 
         </div>
   )
