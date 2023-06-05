@@ -1,8 +1,6 @@
-.dark {
-    color: white;
-    background-color: black;
+#home.dark {
+    border: 2px solid orange;
 }
-.light {
-    color:black;
-    background-color: antiquewhite;
+#home.light {
+    border: 2px solid darkred;
 }

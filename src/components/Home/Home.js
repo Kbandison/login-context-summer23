@@ -11,7 +11,7 @@ const Home = () => {
     //   theme === 'light' ? setTheme('dark') : setTheme('light')
     // }
   return (
-    <div className={theme}>
+    <div id='home' className={theme}>
         Home
         <span> {theme} </span>
         <button onClick={changeTheme}> Change Theme </button>

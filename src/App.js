@@ -18,9 +18,10 @@ function App() {
   }
   return (
     <div className="App">
+   
       <ThemeContext.Provider value={
         {theme, setTheme, changeTheme}
-        }>
+      }>
           <LoginProvider>
               <Home />
               <Login />
