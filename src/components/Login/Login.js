@@ -26,8 +26,10 @@ const Login = () => {
   return (
     <div id='login' className={theme}>
         <h1>Please Login:</h1> 
-        <h2>{login.message}</h2>
-
+        <h2>{login.message}</h2> 
+        {/* isAuth = false -> 'User not Authorizer'
+        isAuth = true -> 'Welcome username' */}
+        
         <label htmlFor='username'>Username: </label>
         <input 
             type='text'
