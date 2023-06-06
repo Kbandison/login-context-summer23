@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react'
 import {ThemeContext} from '../../context/ThemeContext'
 import {LoginContext, LoginDispatchContext} from '../../context/LoginContext'
+import { fetchLogin } from '../../context/loginContextHelper'
+
 import './Login.css'
 
 const Login = () => {
@@ -63,11 +65,8 @@ const Login = () => {
                 /><br />
                 <button>Register</button>
                 <button onClick={ 
-                    () => dispatch({
-                        type: 'LOGIN',
-                        data: input
-                    })  
-                    }>Login</button>
+                    () => fetchLogin(dispatch, input)
+                }>Login</button>
             </>           
         }
 
