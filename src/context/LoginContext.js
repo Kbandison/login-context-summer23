@@ -27,16 +27,16 @@ const loginReducer = (login, action) => {
     switch (action.type) {
         case 'LOGIN':
             // console.log(action.data)
-           if (action.data.password === 'abc'){
+            //    if (action.data.password === 'abc'){
+            //     return {
+            //         username: action.data.username,
+            //         isAuth: true,
+            //         message: `Welcome ${action.data.username}`
+            //     }
+            //    }
             return {
-                username: action.data.username,
-                isAuth: true,
-                message: `Welcome ${action.data.username}`
-            }
-           }
-            return {
-                ...login,
-                message: "User not Authorized"
+                ...action.data,
+                isAuth: true
             }
 
         // logout case

@@ -5,6 +5,10 @@ import { fetchLogin } from '../../context/loginContextHelper'
 
 import './Login.css'
 
+//Make the register button work
+//Need to send username and password the backend
+// No logic in the backend right now, just return success message with username.
+
 const Login = () => {
   //consume theme context  
   const {theme} = useContext(ThemeContext)
