@@ -1,5 +1,21 @@
 import Axios from '../lib/Axios'
 
+const errorHandler = async(dispatch, error) => {
+    // console.log(error)
+
+    // passing full error object
+    // dispatch({
+    //     type: 'ERROR',
+    //     error: error
+    // })
+
+    //passing just the message from the backend
+    dispatch({
+        type: 'ERROR',
+        message: error.response.data
+    })
+}
+
 
 export const fetchLogin = async (dispatch, userData) => {
     try {
@@ -15,17 +31,22 @@ export const fetchLogin = async (dispatch, userData) => {
             data: response.data
     })
     } catch (error) {
-        throw new Error(error)
+        errorHandler(dispatch, error)
     }
 }
 
 export const registerUser = async (dispatch, userData) => {
+    try {
+        let response = await Axios.post('/users/register', userData)
+        // console.log(response.data);
     
-    let response = await Axios.post('/users/register', userData)
-    // console.log(response.data);
-
-    dispatch({
-        type: 'REGISTER',
-        payload: response.data
-    })
+        dispatch({
+            type: 'REGISTER',
+            payload: response.data
+        })
+        
+    } catch (error) {
+         errorHandler(dispatch, error)
+    }
 }
+
