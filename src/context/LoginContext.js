@@ -50,6 +50,13 @@ const loginReducer = (login, action) => {
                 isAuth: false,
                 message: 'Logged Out!'
             }
+        case "REGISTER":
+            return {
+                username: '',
+                password: '',
+                isAuth: false,
+                ...action.payload
+            }
         default:
             return login
     }
