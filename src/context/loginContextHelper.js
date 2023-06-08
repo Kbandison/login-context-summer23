@@ -56,3 +56,5 @@ export const registerUser = async (dispatch, userData) => {
     }
 }
 
+//make logout delete the local storage token
+//localStorage.removeItem('jwtToken')
