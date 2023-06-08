@@ -58,3 +58,13 @@ export const registerUser = async (dispatch, userData) => {
 
 //make logout delete the local storage token
 //localStorage.removeItem('jwtToken')
+export const logout = dispatch => {
+    try {
+
+        localStorage.removeItem('jwtToken')
+
+        dispatch({type: 'LOGOUT'})
+    } catch (error) {
+        errorHandler(dispatch, error)
+    }
+}
