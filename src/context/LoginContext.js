@@ -35,8 +35,7 @@ const loginReducer = (login, action) => {
             //     }
             //    }
             return {
-                ...action.data,
-                isAuth: true
+                ...action.data
             }
 
         // logout case
@@ -47,7 +46,6 @@ const loginReducer = (login, action) => {
             return {
                 username: '',
                 password: '',
-                isAuth: false,
                 message: 'Logged Out!'
             }
         case "REGISTER":
