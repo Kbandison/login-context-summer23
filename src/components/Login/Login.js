@@ -26,12 +26,14 @@ const Login = () => {
 
     useEffect(() => {
       const tokenLogin = async () => {
-        checkAuthToken()
-        let response = await Axios.post('/users/authtoken')
+        if (checkAuthToken()) {
+            let response = await Axios.post('/users/authtoken')
             dispatch({
-            type: 'LOGIN',
-            data: response.data
-        })
+                type: 'LOGIN',
+                data: response.data
+            })  
+        } 
+        
       } 
       tokenLogin()
      
